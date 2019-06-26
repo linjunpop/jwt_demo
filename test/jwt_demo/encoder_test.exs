@@ -8,7 +8,7 @@ defmodule JwtDemo.EncoderTest do
         sub: "user-123123123"
       }
 
-      result = Encoder.encode(payload)
+      result = Encoder.encode(payload, :none)
 
       assert result == "eyJhbGciOiJub25lIn0.eyJzdWIiOiJ1c2VyLTEyMzEyMzEyMyJ9"
     end

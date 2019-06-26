@@ -8,11 +8,11 @@ defmodule JwtDemo.Encoder do
   """
   @spec encode(
           map,
-          nil | {:sha256, binary}
+          :none | {:sha256, binary}
         ) :: binary
-  def encode(payload, sign \\ nil)
+  def encode(payload, sign \\ :none)
 
-  def encode(payload, nil) when is_map(payload) do
+  def encode(payload, :none) when is_map(payload) do
     [
       encode_map(%{alg: "none"}),
       encode_map(payload)
@@ -42,7 +42,7 @@ defmodule JwtDemo.Encoder do
 
   defp base64_encode(string) do
     string
-    |> Base.url_encode64()
+    |> Base.url_encode64(padding: false)
     # remove trailing equal sign
     |> String.replace(~r/=$/, "")
   end
