@@ -1,4 +1,4 @@
-# JWT Workshop
+# Try! JWT Workshop
 
 ## Intro to JWT
 
